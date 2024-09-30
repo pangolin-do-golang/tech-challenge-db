@@ -1,6 +1,7 @@
 name: "Terraform Developer"
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - developer
