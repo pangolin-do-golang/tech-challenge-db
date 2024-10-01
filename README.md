@@ -1,6 +1,6 @@
 # Tech Challenge DB
 
-This repository groups the DB configurations required for the microservice https://github.com/pangolin-do-golang/tech-challenge-api .
+This repository groups the DB configurations required for the microservice https://github.com/pangolin-do-golang/tech-challenge .
 
 ## Table Structure
 
