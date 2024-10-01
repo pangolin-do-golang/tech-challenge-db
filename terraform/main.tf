@@ -4,18 +4,23 @@ provider "aws" {
   region = "us-east-1"
 }
 
+resource "aws_db_subnet_group" "default" {
+  name = "main"
+  subnet_ids = ["subnet-003555b3ef5b4ea17", "subnet-0ab3604495a3d4aeb", "subnet-0e91caa966025f17f"]
+}
 
 resource "aws_db_instance" "tech_challenge_db" {
-  allocated_storage = 20
-  engine            = "postgres"
-  engine_version    = "13.4"
-  instance_class    = var.db_instance_class
+  db_name              = "tech_challenge"
+  allocated_storage    = 10
+  engine               = "postgres"
+  engine_version       = "16.2"
+  instance_class       = "db.t3.micro"
+  multi_az             = false
+  db_subnet_group_name = aws_db_subnet_group.default.name
 
-  username             = "admin"
-  password             = "P@ssw0rd!"
-  parameter_group_name = "default.postgres13"
+  username             = "tech_challenge_user"
+  password             = "bXlzZWN1cmVwYXNzd29yZA=="
+  parameter_group_name = "default.postgres16"
   skip_final_snapshot  = true
-
-
 }
 
